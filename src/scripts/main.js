@@ -29,7 +29,8 @@ function findEmployeeList() {
     fragment.appendChild(li);
   });
 
-  employeeList.replaceChildren(fragment);
+  employeeList.innerHTML = '';
+  employeeList.appendChild(fragment);
 }
 
 findEmployeeList();
