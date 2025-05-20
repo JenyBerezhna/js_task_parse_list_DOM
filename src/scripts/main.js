@@ -10,8 +10,8 @@ function findEmployeeList() {
   const employees = [...employeeList.children].map(({ dataset }) => ({
     name: dataset.name || '',
     position: dataset.position || '',
-    salary: ((dataset.salary || '').match(/-?\d+(\.\d+)?/) || [0])[0] * 1,
-    age: ((dataset.age || '').match(/\d+/) || [0])[0] * 1,
+    salary: parseFloat(dataset.salary?.match(/-?\d+(\.\d+)?/)?.[0]) || 0,
+    age: Number(dataset.age?.match(/\d+/)?.[0]) || 0,
   }));
 
   employees.sort((a, b) => b.salary - a.salary);
